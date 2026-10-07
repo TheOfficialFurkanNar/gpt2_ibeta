@@ -11,12 +11,15 @@ class ChatConfig:
     system_prompt: str = "Below is a conversation between a user and a helpful AI assistant."
     max_length: int = 512
     max_new_tokens: int = 100
-    temperature: float = 0.7
+    temperature: float = 0.7  # Generation temperature for sampling
+    calibration_temperature: float = 1.0  # Temperature for confidence calibration
     num_return_sequences: int = 1
     do_sample: bool = True
     top_k: int = 40
     top_p: float = 0.9
     repetition_penalty: float = 1.15
+    best_of_n: int = 4  # Number of candidate responses to sample and score per turn
+    show_candidate_scores: bool = True  # Display candidate scores and ranking in CLI output
     stop_sequences: List[str] = field(default_factory=lambda: [
         "\nInstruction:",
         "\nResponse:",
@@ -27,5 +30,6 @@ class ChatConfig:
         "### Response:",
         "###"
     ])
+
 
 
