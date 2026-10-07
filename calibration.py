@@ -5,12 +5,12 @@ This module provides simple temperature scaling for calibrating
 model confidence in text generation and Best-of-N candidate scoring.
 
 Key Equations:
-- Temperature Scaling: softmax(z_i / T) = exp(z_i / T) / Σ_j exp(z_j / T)
+- Temperature Scaling: $\text{softmax}(z_i / T) = \frac{\exp(z_i / T)}{\sum_j \exp(z_j / T)}$
   - Higher T (>1) softens probabilities (more uniform, higher uncertainty)
   - Lower T (<1) sharpens probabilities (more peaked, higher confidence)
 
 - Length-Normalized Log-Likelihood Score (Best-of-N):
-  s(x, y) = (1 / |y|) * Σ_{t=1}^{|y|} log p_θ(y_t | x, y_<t>; T_calib)
+  $s(x, y) = \frac{1}{|y|} \sum_{t=1}^{|y|} \log p_\theta(y_t | x, y_{<t}; T_{\text{calib}})$
   - Computes log of geometric mean of token probabilities
   - Normalizes by sequence length |y| to eliminate short-response bias
 """
@@ -42,7 +42,7 @@ class SimpleTemperatureScaler:
         """
         Apply temperature scaling to logits.
         
-        Equation: scaled_logits = logits / T
+        Equation: $\text{scaled\_logits} = \frac{\text{logits}}{T}$
         
         Args:
             logits: Raw model outputs [B, seq_len, V] or [seq_len, V]
@@ -61,7 +61,7 @@ class SimpleTemperatureScaler:
         r"""
         Compute length-normalized log-likelihood score for a single candidate response:
         
-        s(x, y) = (1 / |y|) * \sum_{t=1}^{|y|} log p(y_t | x, y_<t>; T_calib)
+        $s(x, y) = \frac{1}{|y|} \sum_{t=1}^{|y|} \log p(y_t | x, y_{<t}; T_{\text{calib}})$
         
         Args:
             logits: Logit tensor for generated tokens [seq_len, vocab_size]
