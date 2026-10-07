@@ -10,7 +10,7 @@ class ChatConfig:
     local_model_path: str = "saved_model"  # If set, uses local model path instead of downloading
     system_prompt: str = "Below is a conversation between a user and a helpful AI assistant."
     max_length: int = 512
-    max_new_tokens: int = 100
+    max_new_tokens: int = 256
     temperature: float = 0.7  # Generation temperature for sampling
     calibration_temperature: float = 1.0  # Temperature for confidence calibration
     num_return_sequences: int = 1

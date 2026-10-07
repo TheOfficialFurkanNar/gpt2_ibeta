@@ -10,8 +10,11 @@ metrics:
 - perplexity
 base_model:
 - openai-community/gpt2
+- FurkanNar/GPT-2_Instruct-v0.1
 pipeline_tag: text-generation
 library_name: transformers
+tags:
+- text-generation-inference
 ---
 # GPT-2 Instruct Model Fine-tuning
 
@@ -19,7 +22,7 @@ This project fine-tunes the GPT-2 instruct model on the Databricks Dolly-15k dat
 
 ## Model & Dataset
 
-- **Base Model**: [FurkanNar/gpt-2_instruct](https://huggingface.co/FurkanNar/gpt-2_instruct)
+- **Base Model**: [FurkanNar/GPT-2_Instruct-v0.1](https://huggingface.co/FurkanNar/GPT-2_Instruct-v0.1)
 - **Training Datasets**: The model was trained on **3 datasets**:
   - [tatsu-lab/alpaca](https://huggingface.co/datasets/tatsu-lab/alpaca) - Instruction-following dataset
   - [ChilleD/SVAMP](https://huggingface.co/datasets/ChilleD/SVAMP) - Math word problems
