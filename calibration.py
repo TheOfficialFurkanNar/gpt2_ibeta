@@ -39,7 +39,7 @@ class SimpleTemperatureScaler:
         self.temperature = config.calibration_temperature
     
     def scale_logits(self, logits: torch.Tensor) -> torch.Tensor:
-        """
+        r"""
         Apply temperature scaling to logits.
         
         Equation: $\text{scaled\_logits} = \frac{\text{logits}}{T}$

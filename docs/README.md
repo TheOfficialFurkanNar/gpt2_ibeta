@@ -94,13 +94,13 @@ The model uses a sophisticated **Best-of-N sampling** approach with multiple adv
 
 | Parameter | Value | Description |
 |-----------|-------|-------------|
-| Generation Temperature | 0.7 | Controls randomness during candidate generation |
-| Calibration Temperature | 1.0 | Scales logits for confidence scoring |
-| Top-K | 40 | Limits sampling to top K tokens per position |
-| Top-P (Nucleus) | 0.9 | Cumulative probability threshold for sampling |
-| Repetition Penalty | 1.15 | Penalizes repeated tokens to reduce redundancy |
-| No Repeat Ngram Size | 3 | Prevents repeating 3-token sequences |
-| Max New Tokens | 100 | Maximum response length |
+| Generation Temperature | 0.7   | Controls randomness during candidate generation |
+| Calibration Temperature | 0.8    | Scales logits for confidence scoring |
+| Top-K | 40    | Limits sampling to top K tokens per position |
+| Top-P (Nucleus) | 0.9   | Cumulative probability threshold for sampling |
+| Repetition Penalty | 1.15  | Penalizes repeated tokens to reduce redundancy |
+| No Repeat Ngram Size | 3     | Prevents repeating 3-token sequences |
+| Max New Tokens | 100   | Maximum response length |
 
 ### Multi-Turn Conversation
 
