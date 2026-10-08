@@ -27,7 +27,7 @@ class CLIChat:
         # Use local path if provided, otherwise use model name from HF
         model_path = config.local_model_path if config.local_model_path else config.model_name
         print(f"Loading model from: {model_path}...")
-        self.tokenizer = AutoTokenizer.from_pretrained(model_path)
+        self.tokenizer = AutoTokenizer.from_pretrained("gpt2")
         self.model = AutoModelForCausalLM.from_pretrained(model_path, trust_remote_code=True).to(self.device)
         self.scaler = SimpleTemperatureScaler(config)
         self.conversation_history = []
